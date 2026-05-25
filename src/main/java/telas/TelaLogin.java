@@ -15,7 +15,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         
-        this.setSize(600, 500);   
+        this.setSize(400, 500);   
     // centralizar na tela
         this.setLocationRelativeTo(null);
     }
