@@ -18,7 +18,7 @@ public class TelaRelatorioAlvaras extends javax.swing.JFrame {
     
     public TelaRelatorioAlvaras() {
         initComponents();
-        this.setSize(1000, 600); // Define um tamanho bom para ver a tabela
+        this.setSize(1000, 500); 
         this.setLocationRelativeTo(null);
         
         configurarData();
@@ -33,17 +33,17 @@ public class TelaRelatorioAlvaras extends javax.swing.JFrame {
     
     public void atualizarTabela() {
         try {
-            // 1. Abre a conexao e faz o SELECT geral utilizando JPA
+            // 1. Abre a conexao e faz o SELECT geral
             EntityManager em = JPAUtil.getEntityManager();
             List<Alvara> lista = em.createQuery("SELECT a FROM Alvara a", Alvara.class).getResultList();
 
-            // 2. Obtém o modelo da sua JTable tblAlvaras
+            // 2. Obtém o modelo da tabela de Alvaras
             DefaultTableModel modelo = (DefaultTableModel) tblAlvaras.getModel();
-            modelo.setNumRows(0); // Limpa as linhas fictícias de design
+            modelo.setNumRows(0); 
 
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-            // 3. Varre o banco de dados e joga na JTable do relatório
+            // 3. Scaneia o banco de dados e preenche a tabela do relatório
             for (Alvara a : lista) {
                 modelo.addRow(new Object[]{
                     a.getNome(),
@@ -58,8 +58,7 @@ public class TelaRelatorioAlvaras extends javax.swing.JFrame {
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Erro ao carregar relatório: " + e.getMessage());
         }
-    }    
-    
+    }     
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -82,7 +81,7 @@ public class TelaRelatorioAlvaras extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1000, 600));
+        setPreferredSize(new java.awt.Dimension(1000, 500));
 
         jPanel1.setBackground(new java.awt.Color(70, 90, 140));
 
@@ -284,7 +283,7 @@ public class TelaRelatorioAlvaras extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -293,7 +292,7 @@ public class TelaRelatorioAlvaras extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(490, 490, 490))
+                .addContainerGap())
         );
 
         pack();
@@ -303,7 +302,6 @@ public class TelaRelatorioAlvaras extends javax.swing.JFrame {
         TelaDashboard telaDash = new TelaDashboard();
         telaDash.setVisible(true);
     
-    // Fecha a tela atual de relatórios
         this.dispose();
     }//GEN-LAST:event_lblDashboardMouseClicked
 
@@ -315,28 +313,22 @@ public class TelaRelatorioAlvaras extends javax.swing.JFrame {
 
     private void lblCadastroAlvarasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastroAlvarasMouseClicked
         TelaCadastroAlvara tela = new TelaCadastroAlvara();
-        tela.setVisible(true); // Sem esta linha, a tela não aparece.
-        tela.setLocationRelativeTo(null); // Centraliza conforme o padrão
-        this.dispose(); // Fecha a tela atual
+        tela.setVisible(true); 
+        tela.setLocationRelativeTo(null);
+        this.dispose(); 
     }//GEN-LAST:event_lblCadastroAlvarasMouseClicked
 
     private void lblAuditoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAuditoriaMouseClicked
-        // 1. Instancia a tela de auditoria
         TelaAuditoria telaAuditoria = new TelaAuditoria();
-    
-    // 2. Torna a nova tela visível
         telaAuditoria.setVisible(true);
-    
-    // 3. Fecha a tela atual de Relatório para liberar memória
+
         this.dispose();
     }//GEN-LAST:event_lblAuditoriaMouseClicked
 
     private void lblBackupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackupMouseClicked
-        // Abre a tela de Backup
         TelaBackup telaBackup = new TelaBackup();
         telaBackup.setVisible(true);
-    
-    // Fecha a tela atual de relatórios
+        
         this.dispose();
     }//GEN-LAST:event_lblBackupMouseClicked
 
@@ -348,7 +340,7 @@ public class TelaRelatorioAlvaras extends javax.swing.JFrame {
         TelaCadastroAlvara telaFormulario = new TelaCadastroAlvara();
         telaFormulario.setVisible(true);
         telaFormulario.setLocationRelativeTo(null);
-        this.dispose(); // Fecha esta tela de relatório
+        this.dispose(); 
     }//GEN-LAST:event_btnNovoAlvaraActionPerformed
 
     public static void main(String args[]) {

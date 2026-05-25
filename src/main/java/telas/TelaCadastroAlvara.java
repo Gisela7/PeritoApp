@@ -1,10 +1,10 @@
 package telas;
 
-import model.Alvara;    // Importa a sua entidade Alvara
-import dao.AlvaraDAO;   // Importa o seu objeto de acesso ao banco
-import java.util.Date;  // Necessário para lidar com datas
-import java.text.SimpleDateFormat; // Necessário para converter a String da tela para Date
-import javax.swing.JOptionPane;     // Necessário para as mensagens de aviso
+import model.Alvara;
+import dao.AlvaraDAO; 
+import java.util.Date;
+import java.text.SimpleDateFormat; 
+import javax.swing.JOptionPane; 
 
 
 public class TelaCadastroAlvara extends javax.swing.JFrame {
@@ -187,26 +187,22 @@ public class TelaCadastroAlvara extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
        try {
-        // 1. Instanciar o objeto e capturar os dados
         Alvara a = new Alvara();
         a.setNome(txtNome.getText());
         a.setTipo(txtTipo.getText());
         a.setProcesso(txtProcesso.getText());
         a.setValor(Double.parseDouble(txtValor.getText().replace(",", ".")));
         
-        // Converter String do campo para java.util.Date
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
         a.setDataAlvara(sdf.parse(txtData.getText()));
         
         a.setPago(chkPago.isSelected());
 
-        // 2. Salvar via DAO
         AlvaraDAO dao = new AlvaraDAO();
         dao.salvar(a);
 
         javax.swing.JOptionPane.showMessageDialog(this, "Alvará cadastrado com sucesso!");
         
-        // 3. Voltar para a tela principal
         new TelaRelatorioAlvaras().setVisible(true);
         this.dispose();
 
@@ -239,9 +235,7 @@ public class TelaCadastroAlvara extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTipoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

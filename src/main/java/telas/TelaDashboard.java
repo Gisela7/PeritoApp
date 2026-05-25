@@ -172,7 +172,7 @@ public class TelaDashboard extends javax.swing.JFrame {
     private void lblCadastroPeritosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastroPeritosMouseClicked
         TelaDadosPeritos tela = new TelaDadosPeritos();
         tela.setVisible(true);
-        this.dispose(); // Fecha a tela de relatório e abre a de peritos
+        this.dispose();
     }//GEN-LAST:event_lblCadastroPeritosMouseClicked
 
     private void lblCadastroAlvarasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastroAlvarasMouseClicked
@@ -189,9 +189,6 @@ public class TelaDashboard extends javax.swing.JFrame {
         new TelaBackup().setVisible(true);
     }//GEN-LAST:event_lblBackupMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

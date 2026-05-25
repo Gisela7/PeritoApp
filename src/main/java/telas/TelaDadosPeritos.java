@@ -218,7 +218,6 @@ public class TelaDadosPeritos extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
     try {
-           // Validação simples
             if (txtNomePerito.getText().isEmpty() || txtCPF.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Nome e CPF são obrigatórios!");
                 return;
@@ -227,7 +226,7 @@ public class TelaDadosPeritos extends javax.swing.JFrame {
         Perito p = new Perito();
         p.setNome(txtNomePerito.getText());
         p.setCpf(txtCPF.getText());
-        p.setEmail(txtEmailPerito.getText()); // O campo que acrescentamos!
+        p.setEmail(txtEmailPerito.getText());
         p.setBanco(txtBanco.getText());
         p.setAgencia(txtAgencia.getText());
         p.setConta(txtConta.getText());
@@ -245,7 +244,6 @@ public class TelaDadosPeritos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        
         JOptionPane.showMessageDialog(this, "Para excluir, selecione um perito na tela de listagem.");
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -277,7 +275,6 @@ public class TelaDadosPeritos extends javax.swing.JFrame {
       try{ 
         TelaListagem lista = new TelaListagem();
         lista.setVisible(true);
-    // fechar a tela atual ao abrir a listagem
         this.dispose();
     }//GEN-LAST:event_btnVerListagemActionPerformed
       catch (Exception e) {

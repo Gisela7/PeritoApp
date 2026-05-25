@@ -6,24 +6,20 @@ public class TelaListagem extends javax.swing.JFrame {
 
     public TelaListagem() {
         initComponents();
-        this.setSize(600, 500); // Define o tamanho solicitado
-        this.setLocationRelativeTo(null); // Abre a janela centralizada na tela
-        carregarDados(); // Chama o método de busca
+        this.setSize(600, 500);
+        this.setLocationRelativeTo(null);
+        carregarDados();
     }
     public void carregarDados() {
         try {
-        // 1. Iniciar conexão JPA
             jakarta.persistence.EntityManagerFactory emf = jakarta.persistence.Persistence.createEntityManagerFactory("PeritoPU");
             jakarta.persistence.EntityManager em = emf.createEntityManager();
 
-        // 2. Buscar a lista de peritos
             java.util.List<model.Perito> lista = em.createQuery("SELECT p FROM Perito p", model.Perito.class).getResultList();
 
-        // 3. Preparar o modelo da tabela
             javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tblListagem.getModel();
-            modelo.setNumRows(0); // Limpa a tabela
+            modelo.setNumRows(0);
 
-        // 4. Preencher com os dados do banco
         for (model.Perito p : lista) {
             modelo.addRow(new Object[]{
                 p.getId(),
@@ -136,14 +132,11 @@ public class TelaListagem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // 1. Instancia a tela principal (Relatório de Alvarás)
         TelaRelatorioAlvaras telaPrincipal = new TelaRelatorioAlvaras();
     
-    // 2. Aplica as configurações de tamanho e centralização
         telaPrincipal.setSize(1000, 600); 
         telaPrincipal.setLocationRelativeTo(null);
     
-    // 3. Torna a principal visível e fecha a listagem atual
         telaPrincipal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed

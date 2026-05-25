@@ -9,14 +9,10 @@ public class TelaLogin extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = 
             java.util.logging.Logger.getLogger(TelaLogin.class.getName());
 
-    /**
-     * Creates new form Login
-     */
+   
     public TelaLogin() {
         initComponents();
-        
         this.setSize(400, 500);   
-    // centralizar na tela
         this.setLocationRelativeTo(null);
     }
     
@@ -154,7 +150,6 @@ public class TelaLogin extends javax.swing.JFrame {
         String email = txtEmail.getText().trim();
         String senha = new String(txtSenha.getPassword());
 
-        // Validação básica
         if (email.isEmpty() || senha.isEmpty()) {
             JOptionPane.showMessageDialog(this,
                     "Preencha email e senha!",
@@ -174,7 +169,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
                 
                 TelaRelatorioAlvaras principal = new TelaRelatorioAlvaras();
-// Criar a instância da próxima tela
+
                 principal.setSize(1000, 600); 
                 principal.setLocationRelativeTo(null);
                 principal.setVisible(true);
